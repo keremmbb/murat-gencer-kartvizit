@@ -14,7 +14,6 @@
             --text-dark: #2c3e50;
         }
 
-        /* --- ANİMASYONLAR --- */
         @keyframes cardEntry {
             0% { opacity: 0; transform: translateY(60px) scale(0.9); }
             100% { opacity: 1; transform: translateY(0) scale(1); }
@@ -71,13 +70,11 @@
             overflow: hidden;
         }
 
-        /* --- KATMAN YÖNETİMİ --- */
         .card-front { z-index: 2; transform: rotateY(0deg); }
         .card-back { z-index: 1; transform: rotateY(180deg); background: linear-gradient(180deg, #ffffff 0%, #f1f4f8 100%); }
         .is-flipped .card-front { z-index: 1; }
         .is-flipped .card-back { z-index: 3; }
 
-        /* --- ÜST TASARIM --- */
         .flip-icon-top {
             position: absolute;
             top: 20px;
@@ -104,7 +101,6 @@
         .user-name { font-size: 26px; margin: 10px 0; font-weight: 700; }
         .content { padding: 20px 25px; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
         
-        /* --- BUTONLAR --- */
         .actions { display: flex; flex-direction: column; gap: 12px; }
         
         .btn {
@@ -130,7 +126,6 @@
         .btn-mail { background-color: var(--email-orange); animation-delay: 0.7s; }
         .btn-linkedin { background-color: var(--linkedin-blue); animation-delay: 0.8s; }
 
-        /* --- ARKA YÜZ DETAYLARI --- */
         .info-list { width: 100%; display: flex; flex-direction: column; gap: 15px; }
 
         .info-card {
@@ -200,7 +195,7 @@
                 <div style="font-weight: bold; color: var(--primary-blue); font-size: 24px; margin-bottom: 20px;">HEDEF</div>
                 
                 <div class="info-list">
-                    <a href="https://www.google.com/maps/search/?api=1&query=Acibadem+Mah.+Ciftlik+Sokak+No%3A8%2FB+Acibadem-Kadikoy+Istanbul" target="_blank" class="info-card" onclick="event.stopPropagation()">
+                    <a href="https://www.google.com/maps/search/?api=1&query=41.00136,29.0351451&query_place_id=ChIJC0fx7w24yhQRoQRKDiHobX4" target="_blank" class="info-card" onclick="event.stopPropagation()">
                         <div class="info-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
                         <div class="info-text">
                             <span class="info-label">KONUM</span>
@@ -233,9 +228,7 @@
 
 <script>
     function handleCardClick(event) {
-        // Eğer bir butona veya linke tıklandıysa kartı döndürme
         if (event.target.closest('.btn') || event.target.closest('.info-card')) return;
-        
         document.getElementById('card').classList.toggle('is-flipped');
         if ("vibrate" in navigator) navigator.vibrate(15);
     }
