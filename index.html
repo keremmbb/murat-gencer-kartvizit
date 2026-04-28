@@ -39,7 +39,7 @@
         }
 
         .wrapper {
-            width: 90%;
+            width: 95%;
             max-width: 380px;
             position: relative;
             animation: cardEntry 1s cubic-bezier(0.2, 1, 0.3, 1) forwards;
@@ -47,7 +47,7 @@
 
         .card-container {
             width: 100%;
-            height: 640px; 
+            height: 680px; 
             position: relative;
             transform-style: preserve-3d;
             transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -75,6 +75,24 @@
         .is-flipped .card-front { z-index: 1; }
         .is-flipped .card-back { z-index: 3; }
 
+        .logo-img {
+            width: 120px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .header {
+            background-color: var(--primary-blue);
+            padding: 40px 20px;
+            color: white;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .flip-icon-top {
             position: absolute;
             top: 20px;
@@ -91,53 +109,40 @@
         }
         .flip-icon-top svg { fill: white; width: 20px; height: 20px; }
 
-        .header {
-            background-color: var(--primary-blue);
-            padding: 45px 20px;
-            color: white;
-            text-align: center;
-            position: relative;
-        }
-        .user-name { font-size: 26px; margin: 10px 0; font-weight: 700; }
+        .user-name { font-size: 26px; margin: 5px 0; font-weight: 700; }
         .content { padding: 20px 25px; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
-        
-        .actions { display: flex; flex-direction: column; gap: 12px; }
+        .actions { display: flex; flex-direction: column; gap: 10px; }
         
         .btn {
             display: flex; align-items: center; justify-content: center; gap: 12px;
             padding: 14px; border-radius: 16px; text-decoration: none; font-weight: 600;
             color: white; border: none; font-size: 14px; 
-            transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             opacity: 0;
             animation: itemFadeIn 0.5s ease forwards;
             cursor: pointer;
         }
 
-        .btn:hover { 
-            transform: scale(1.05) !important; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
-            filter: brightness(1.1);
-        }
-
+        .btn:hover { transform: scale(1.03); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         .btn svg { fill: white; width: 18px; height: 18px; }
-        .btn-save { background-color: var(--primary-blue); animation-delay: 0.4s; }
-        .btn-call { background-color: var(--phone-blue); animation-delay: 0.5s; }
-        .btn-whatsapp { background-color: var(--whatsapp-green); animation-delay: 0.6s; }
-        .btn-mail { background-color: var(--email-orange); animation-delay: 0.7s; }
-        .btn-linkedin { background-color: var(--linkedin-blue); animation-delay: 0.8s; }
+        .btn-save { background-color: var(--primary-blue); animation-delay: 0.3s; }
+        .btn-call { background-color: var(--phone-blue); animation-delay: 0.4s; }
+        .btn-whatsapp { background-color: var(--whatsapp-green); animation-delay: 0.5s; }
+        .btn-mail { background-color: var(--email-orange); animation-delay: 0.6s; }
+        .btn-linkedin { background-color: var(--linkedin-blue); animation-delay: 0.7s; }
 
-        .info-list { width: 100%; display: flex; flex-direction: column; gap: 15px; }
+        .info-list { width: 100%; display: flex; flex-direction: column; gap: 12px; }
 
         .info-card {
             display: flex; align-items: center; gap: 12px;
-            padding: 15px; background: #f0f3f7; border-radius: 18px; border: 1.5px solid #d1d9e6;
-            text-decoration: none; transition: transform 0.4s ease, background 0.3s ease;
+            padding: 12px 15px; background: #f0f3f7; border-radius: 18px; border: 1.5px solid #d1d9e6;
+            text-decoration: none; transition: transform 0.3s ease;
         }
 
-        .info-card:hover { background: #ffffff; transform: translateX(8px); border-color: var(--primary-blue); }
-        .info-icon svg { fill: var(--primary-blue); width: 22px; height: 22px; }
-        .info-text { font-size: 13px; color: var(--text-dark); text-align: left; font-weight: 500; line-height: 1.4; }
-        .info-label { font-size: 10px; color: #5a67d8; font-weight: 800; text-transform: uppercase; margin-bottom: 3px; display: block; }
+        .info-card:hover { background: #ffffff; transform: translateX(5px); border-color: var(--primary-blue); }
+        .info-icon svg { fill: var(--primary-blue); width: 20px; height: 20px; }
+        .info-text { font-size: 12.5px; color: var(--text-dark); text-align: left; font-weight: 500; line-height: 1.4; }
+        .info-label { font-size: 9px; color: #5a67d8; font-weight: 800; text-transform: uppercase; margin-bottom: 2px; display: block; }
 
         .flip-hint-bar { padding: 12px; font-size: 11px; text-align: center; font-weight: 600; }
     </style>
@@ -152,7 +157,8 @@
                 <div class="flip-icon-top">
                     <svg viewBox="0 0 24 24"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
                 </div>
-                <div style="font-size: 12px; letter-spacing: 3px; opacity: 0.8; font-weight: 600;">HEDEF TECHNOLOGY SOLUTIONS</div>
+                <img src="indir.jpg" alt="Hedef Logo" class="logo-img">
+                <div style="font-size: 11px; letter-spacing: 2px; opacity: 0.9; font-weight: 600;">HEDEF TECHNOLOGY SOLUTIONS</div>
                 <h1 class="user-name">Murat GENCER</h1>
                 <div style="font-style: italic; font-size: 14px; opacity: 0.9;">General Manager</div>
             </div>
@@ -185,17 +191,18 @@
         </div>
 
         <div class="card-face card-back">
-            <div class="header" style="padding: 30px 20px; background: none; color: var(--primary-blue);">
+            <div class="header" style="padding: 25px 20px; background: none; color: var(--primary-blue);">
                 <div class="flip-icon-top" style="background: rgba(46, 49, 146, 0.1);">
                     <svg viewBox="0 0 24 24" style="fill: var(--primary-blue);"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
                 </div>
+                <img src="indir.jpg" alt="Hedef Logo" style="width: 80px; margin-bottom: 10px;">
             </div>
 
             <div class="back-content" style="display: flex; flex-direction: column; align-items: center; padding: 0 25px;">
-                <div style="font-weight: bold; color: var(--primary-blue); font-size: 24px; margin-bottom: 20px;">HEDEF</div>
+                <div style="font-weight: bold; color: var(--primary-blue); font-size: 22px; margin-bottom: 15px;">HEDEF</div>
                 
                 <div class="info-list">
-                    <a href="https://www.google.com/maps/search/?api=1&query=41.00136,29.0351451&query_place_id=ChIJC0fx7w24yhQRoQRKDiHobX4" target="_blank" class="info-card" onclick="event.stopPropagation()">
+                    <a href="https://www.google.com/maps?q=41.00136,29.03514" target="_blank" class="info-card" onclick="event.stopPropagation()">
                         <div class="info-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
                         <div class="info-text">
                             <span class="info-label">KONUM</span>
