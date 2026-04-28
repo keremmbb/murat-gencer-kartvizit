@@ -75,16 +75,9 @@
         .is-flipped .card-front { z-index: 1; }
         .is-flipped .card-back { z-index: 3; }
 
-        .logo-img {
-            width: 120px;
-            height: auto;
-            margin-bottom: 15px;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-        }
-
         .header {
             background-color: var(--primary-blue);
-            padding: 40px 20px;
+            padding: 50px 20px;
             color: white;
             text-align: center;
             position: relative;
@@ -109,9 +102,9 @@
         }
         .flip-icon-top svg { fill: white; width: 20px; height: 20px; }
 
-        .user-name { font-size: 26px; margin: 5px 0; font-weight: 700; }
+        .user-name { font-size: 28px; margin: 10px 0; font-weight: 700; }
         .content { padding: 20px 25px; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
-        .actions { display: flex; flex-direction: column; gap: 10px; }
+        .actions { display: flex; flex-direction: column; gap: 12px; }
         
         .btn {
             display: flex; align-items: center; justify-content: center; gap: 12px;
@@ -131,18 +124,35 @@
         .btn-mail { background-color: var(--email-orange); animation-delay: 0.6s; }
         .btn-linkedin { background-color: var(--linkedin-blue); animation-delay: 0.7s; }
 
-        .info-list { width: 100%; display: flex; flex-direction: column; gap: 12px; }
+        /* Arka Yüz Özel Düzenlemeleri */
+        .back-content { 
+            flex-grow: 1; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; /* Dikeyde ortalar */
+            align-items: center; 
+            padding: 0 25px 40px 25px; 
+        }
+
+        .logo-back {
+            width: 180px; /* Logo boyutu büyütüldü */
+            height: auto;
+            margin-bottom: 40px; /* Bilgilerle arasındaki mesafe artırıldı */
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        }
+
+        .info-list { width: 100%; display: flex; flex-direction: column; gap: 15px; }
 
         .info-card {
             display: flex; align-items: center; gap: 12px;
-            padding: 12px 15px; background: #f0f3f7; border-radius: 18px; border: 1.5px solid #d1d9e6;
+            padding: 15px; background: #f0f3f7; border-radius: 18px; border: 1.5px solid #d1d9e6;
             text-decoration: none; transition: transform 0.3s ease;
         }
 
         .info-card:hover { background: #ffffff; transform: translateX(5px); border-color: var(--primary-blue); }
-        .info-icon svg { fill: var(--primary-blue); width: 20px; height: 20px; }
-        .info-text { font-size: 12.5px; color: var(--text-dark); text-align: left; font-weight: 500; line-height: 1.4; }
-        .info-label { font-size: 9px; color: #5a67d8; font-weight: 800; text-transform: uppercase; margin-bottom: 2px; display: block; }
+        .info-icon svg { fill: var(--primary-blue); width: 22px; height: 22px; }
+        .info-text { font-size: 13px; color: var(--text-dark); text-align: left; font-weight: 500; line-height: 1.4; }
+        .info-label { font-size: 10px; color: #5a67d8; font-weight: 800; text-transform: uppercase; margin-bottom: 3px; display: block; }
 
         .flip-hint-bar { padding: 12px; font-size: 11px; text-align: center; font-weight: 600; }
     </style>
@@ -157,10 +167,9 @@
                 <div class="flip-icon-top">
                     <svg viewBox="0 0 24 24"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
                 </div>
-                <img src="indir.jpg" alt="Hedef Logo" class="logo-img">
-                <div style="font-size: 11px; letter-spacing: 2px; opacity: 0.9; font-weight: 600;">HEDEF TECHNOLOGY SOLUTIONS</div>
+                <div style="font-size: 12px; letter-spacing: 3px; opacity: 0.9; font-weight: 600; margin-bottom: 5px;">HEDEF TECHNOLOGY SOLUTIONS</div>
                 <h1 class="user-name">Murat GENCER</h1>
-                <div style="font-style: italic; font-size: 14px; opacity: 0.9;">General Manager</div>
+                <div style="font-style: italic; font-size: 16px; opacity: 0.9;">General Manager</div>
             </div>
 
             <div class="content">
@@ -187,22 +196,21 @@
                     </a>
                 </div>
             </div>
-            <div class="flip-hint-bar" style="background: var(--primary-blue); color: white;">BİLGİ İÇİN TIKLA ↻</div>
+            <div class="flip-hint-bar" style="background: var(--primary-blue); color: white;">İLETİŞİM BİLGİLERİ ↻</div>
         </div>
 
         <div class="card-face card-back">
-            <div class="header" style="padding: 25px 20px; background: none; color: var(--primary-blue);">
+            <div class="header" style="background: none; padding: 20px;">
                 <div class="flip-icon-top" style="background: rgba(46, 49, 146, 0.1);">
                     <svg viewBox="0 0 24 24" style="fill: var(--primary-blue);"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
                 </div>
-                <img src="indir.jpg" alt="Hedef Logo" style="width: 80px; margin-bottom: 10px;">
             </div>
 
-            <div class="back-content" style="display: flex; flex-direction: column; align-items: center; padding: 0 25px;">
-                <div style="font-weight: bold; color: var(--primary-blue); font-size: 22px; margin-bottom: 15px;">HEDEF</div>
+            <div class="back-content">
+                <img src="indir.jpg" alt="Hedef Logo" class="logo-back">
                 
                 <div class="info-list">
-                    <a href="https://www.google.com/maps?q=41.00136,29.03514" target="_blank" class="info-card" onclick="event.stopPropagation()">
+                    <a href="https://www.google.com/maps/search/?api=1&query=41.00136,29.0351451" target="_blank" class="info-card" onclick="event.stopPropagation()">
                         <div class="info-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
                         <div class="info-text">
                             <span class="info-label">KONUM</span>
